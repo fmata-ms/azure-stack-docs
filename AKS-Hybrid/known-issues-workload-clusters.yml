@@ -198,7 +198,8 @@ sections:
           2. Copy the token to the VM using the following command. The `ip` setting in the command below refers to the IP address of the AKS host's control plane.
           
              ```
-             $ scp -i (Get-AksHciConfig).Moc.sshPrivateKey .\cloudlogin.yaml clouduser@<ip>:~/cloudlogin.yaml $ ssh -i (Get-AksHciConfig).Moc.sshPrivateKey clouduser@<ip> sudo mv cloudlogin.yaml /opt/wssd/k8s/cloudlogin.yaml
+             $ scp -i (Get-AksHciConfig).Moc.sshPrivateKey .\cloudlogin.yaml clouduser@<ip>:~/cloudlogin.yaml 
+             $ ssh -i (Get-AksHciConfig).Moc.sshPrivateKey clouduser@<ip> sudo mv cloudlogin.yaml /opt/wssd/k8s/cloudlogin.yaml
              ```
           
           3. Restart the KMS plug-in and the container. 
@@ -206,7 +207,7 @@ sections:
              To get the container ID, run the following command:
           
              ```
-             $ ssh -i (Get-AksHciConfig).Moc.sshPrivateKey clouduser@<ip> "sudo docker container ls | grep 'kms'"
+             $ ssh -i (Get-AksHciConfig).Moc.sshPrivateKey clouduser@<ip> "sudo crictl ps | grep 'kms'"
              ```
           
              The output should appear with the following fields:
@@ -223,7 +224,7 @@ sections:
           4. Finally, restart the container by running the following command:
           
              ```
-             $ ssh -i (Get-AksHciConfig).Moc.sshPrivateKey clouduser@<ip> "sudo docker container kill <Container ID>"
+             $ ssh -i (Get-AksHciConfig).Moc.sshPrivateKey clouduser@<ip> "sudo crictl stop <Container ID>"
              ```
           
       - question: | 
