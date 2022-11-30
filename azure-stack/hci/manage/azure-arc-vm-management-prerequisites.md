@@ -81,6 +81,7 @@ Make sure to include the following firewall URLs to your allowlist:
 | https\://mcr.microsoft.com | 443 | Microsoft container registry | Used for official Microsoft artifacts such as container images |
 | https\://*.his.arc.azure.com | 443 | Azure Arc identity service | Used for identity and access control |
 | https\://*.dp.kubernetesconfiguration.azure.com | 443 | Kubernetes | Used for Azure Arc configuration |
+| https\://*.sts.windows.net | 443 | Kubernetes | Used for Azure Arc configuration |
 | https\://*.servicebus.windows.net | 443 | Cluster connect | Used to securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall |
 | https\://guestnotificationservice.azure.com | 443 | Notification service | Used for guest notification operations |
 | https\://*.dp.prod.appliances.azure.com | 443 | Data plane service | Used for data plane operations for Resource bridge (appliance) | 
